@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PlayGround</string>
+    <string name="help_text">You\'ve clicked item #</string>
+    <string name="a_message">Some message</string>
+    <string name="body">Body: </string>
+</resources>
