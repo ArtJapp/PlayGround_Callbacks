@@ -49,7 +49,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.Messag
         void onMessageClicked(int id, String message);
     }
 
-    public class MessageViewHolder extends RecyclerView.ViewHolder {
+    public class MessageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private int messageId;
         private String messageBody;
@@ -57,6 +57,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.Messag
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
         }
 
         public void setMessageData(int messageId, String data) {
@@ -66,6 +67,11 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.Messag
 
         @OnClick(R.id.rootMessageView)
         public void onItemClick(View view) {
+            callBack.onMessageClicked(messageId, messageBody);
+        }
+        
+        @Override
+        public void onClick(View view) {
             callBack.onMessageClicked(messageId, messageBody);
         }
     }
